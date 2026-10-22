@@ -201,7 +201,15 @@ def build_and_push(base: str, registry: str, name: str, code: str) -> tuple[str,
         (ctx / "Dockerfile").write_text(f'FROM {base}\nCOPY model.py /model.py\nCMD ["python", "/model.py"]\n')
         repo = f"{registry}/participant/{name}"
         subprocess.run(["docker", "build", "-q", "-t", f"{repo}:v1", str(ctx)], check=True, capture_output=True)
-    out = subprocess.run(["docker", "push", f"{repo}:v1"], check=True, capture_output=True, text=True).stdout
+    try:
+        out = subprocess.run(
+            ["docker", "push", f"{repo}:v1"], check=True, capture_output=True, text=True
+        ).stdout
+    except subprocess.CalledProcessError as exc:
+        # This registry and model are disposable test fixtures, never clinical data.
+        # Surface Docker's stderr so CI can diagnose transport and registry failures.
+        detail = (exc.stderr or exc.stdout or "")[-4000:]
+        raise RuntimeError(f"local test-registry push failed: {detail}") from exc
     digest = next(tok for line in out.splitlines() if "digest:" in line for tok in line.split() if tok.startswith("sha256:"))
     # Remove local copies so the worker must pull by digest from the registry.
     subprocess.run(["docker", "rmi", "-f", f"{repo}:v1"], capture_output=True)
