@@ -201,15 +201,13 @@ def build_and_push(base: str, registry: str, name: str, code: str) -> tuple[str,
         (ctx / "Dockerfile").write_text(f'FROM {base}\nCOPY model.py /model.py\nCMD ["python", "/model.py"]\n')
         repo = f"{registry}/participant/{name}"
         subprocess.run(["docker", "build", "-q", "-t", f"{repo}:v1", str(ctx)], check=True, capture_output=True)
-    try:
-        out = subprocess.run(
-            ["docker", "push", f"{repo}:v1"], check=True, capture_output=True, text=True
-        ).stdout
-    except subprocess.CalledProcessError as exc:
-        # This registry and model are disposable test fixtures, never clinical data.
-        # Surface Docker's stderr so CI can diagnose transport and registry failures.
-        detail = (exc.stderr or exc.stdout or "")[-4000:]
-        raise RuntimeError(f"local test-registry push failed: {detail}") from exc
+    push = subprocess.run(["docker", "push", f"{repo}:v1"], capture_output=True, text=True)
+    if push.returncode != 0:
+        # Keep registry diagnostics in the local integration-test output; the
+        # participant and platform result paths never contain this text.
+        raise RuntimeError(f"local integration registry push failed for {name}: "
+                           f"{(push.stderr or push.stdout)[-2000:]}")
+    out = push.stdout
     digest = next(tok for line in out.splitlines() if "digest:" in line for tok in line.split() if tok.startswith("sha256:"))
     # Remove local copies so the worker must pull by digest from the registry.
     subprocess.run(["docker", "rmi", "-f", f"{repo}:v1"], capture_output=True)
@@ -254,8 +252,19 @@ def main() -> int:
     from privatemetrics import ROUTE_VERSION
     from privatemetrics.host import HostConfig, HostScorer, register_host_task
 
-    srv, port = serve(0)
-    registry = f"localhost:{port}"
+    # CI runs a real, short-lived OCI Distribution registry as a job service.
+    # The fallback is the local stdlib mini-registry for offline development.
+    # This setting affects test infrastructure only, never model containment.
+    external_registry = os.environ.get("PM_INTEGRATION_REGISTRY", "").strip()
+    if external_registry:
+        import re
+        if not re.fullmatch(r"(?:localhost|127\.0\.0\.1):[1-9][0-9]{0,4}", external_registry):
+            raise RuntimeError("PM_INTEGRATION_REGISTRY must be localhost:<port> or 127.0.0.1:<port>")
+        srv = None
+        registry = external_registry
+    else:
+        srv, port = serve(0)
+        registry = f"localhost:{port}"
     base = build_base("privatemetrics-int/pybase:local")
     images = {name: build_and_push(base, registry, name, code) for name, code in MODELS.items()}
 
@@ -396,7 +405,8 @@ def main() -> int:
                 and "IDRiD_" not in json.dumps(r["host_result"]) for r in runs),
         "budget charged once per scored release (4 x ε)": runs[-1]["spent_after"] == str(4 * int(EPS)),
     }
-    srv.shutdown()
+    if srv is not None:
+        srv.shutdown()
     shutil.rmtree(work, ignore_errors=True)
     shutil.rmtree(out_root, ignore_errors=True)
     result = {"route_version": ROUTE_VERSION, "epsilon_per_release": EPS, "cap": CAP,
