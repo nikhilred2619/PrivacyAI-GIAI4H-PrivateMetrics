@@ -1,0 +1,67 @@
+name: ci
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Exact versions used for the committed results (requirements-lock.txt needs Python >= 3.12).
+          - python: "3.13"
+            install: locked
+          # Oldest supported Python, compatible version ranges from pyproject.toml.
+          - python: "3.11"
+            install: ranges
+    env:
+      # A skipped real-Docker or registry-schema test is a CI failure, not a pass.
+      PM_REQUIRE_SEALED_RUN: "1"
+      PM_REQUIRE_REGISTRY_CHECK: "1"
+      # Public base image for the participant images of the real sealed run.
+      PM_BASE_IMAGE: python:3.13-alpine
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Upstream checkout (pinned) for contract checks, parity, registry schemas and the sealed run
+        run: |
+          git clone --quiet https://github.com/FG-AI4H/oci-platform.git ../upstream
+          git -C ../upstream checkout --quiet "$(cat docs/UPSTREAM_COMMIT)"
+      - name: Install (pinned lockfile)
+        if: matrix.install == 'locked'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-lock.txt
+          pip install -e . --no-deps
+      - name: Install (version ranges)
+        if: matrix.install == 'ranges'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,integration,plots]"
+      - name: OpenDP import check
+        run: python -c "import opendp.prelude as dp; print('opendp ok')"
+      - name: Lint and type check
+        run: |
+          ruff check .
+          mypy src
+      - name: Tests (skips listed; Docker and registry checks mandatory)
+        run: python -m pytest -q -rs
+      - name: Mutation check
+        run: python scripts/mutation_check.py
+      - name: Fixtures and host demonstration
+        run: |
+          python fixtures/reference/make_prediction_fixtures.py --check
+          python scripts/host_demo.py --workdir "$RUNNER_TEMP/demo" --no-transcript
+      - name: Reference-task fidelity (reduced, not committed) and figures
+        run: |
+          python experiments/reference_fidelity.py --trials 300 --e2e 20 --no-report --out-dir "$RUNNER_TEMP/fid"
+          python experiments/plot_fidelity.py
+      - name: Route-registry declarations against upstream schemas
+        run: python registry/validate_declarations.py

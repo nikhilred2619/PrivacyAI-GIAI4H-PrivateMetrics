@@ -1,0 +1,7 @@
+{
+  "slug": "privacyai-privatemetrics",
+  "name": "PrivacyAI-GIAI4H-PrivateMetrics: host-side label-DP GRADING metrics",
+  "mode": "CONTAINER",
+  "providerName": "Nikhil Reddy Donapati (Independent Researcher, PrivacyAI Research Lab)",
+  "isReference": false
+}

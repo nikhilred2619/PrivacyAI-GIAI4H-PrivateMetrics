@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "privatemetrics"
+version = "0.2.1"
+description = "Label-differentially-private metric release for the GI-AI4H Phase 1 sealed-execution track (independent research contribution)"
+readme = "README.md"
+license = { text = "BSD-3-Clause" }
+authors = [{ name = "Nikhil Reddy Donapati" }]
+requires-python = ">=3.11"
+dependencies = [
+  "opendp==0.16.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "ruff==0.17.0", "mypy==2.4.0", "pydantic>=2.13.4,<3", "numpy==2.5.4; python_version >= '3.12'", "numpy>=2.2,<2.5; python_version < '3.12'"]
+# Only for integration/sealed_run (drives the upstream worker-eval with Docker); same ranges as upstream.
+integration = ["docker>=7.2.0,<8", "boto3>=1.43.61,<2", "requests>=2.34.2,<3"]
+# Only for experiments/plot_fidelity.py.
+plots = ["matplotlib>=3.9,<4"]
+
+[project.scripts]
+privatemetrics = "privatemetrics.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/privatemetrics"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["slow: statistical tests that take more than a few seconds"]
+
+[tool.ruff]
+line-length = 170
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "UP", "BLE", "SIM", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003"]  # ε, ≤, − in docstrings are intentional
+
+[tool.ruff.lint.per-file-ignores]
+"experiments/*" = ["E402"]  # sys.path set before imports so the script runs without installation
+"scripts/*" = ["E402"]
+"integration/*" = ["E402"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true

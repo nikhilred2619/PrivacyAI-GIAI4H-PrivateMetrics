@@ -1,0 +1,14 @@
+{
+  "task_id": "idrid-dr-grading",
+  "dataset_id": "idrid-grading-demo",
+  "version_id": "upstream-5785db8",
+  "scope_id": "scope-reference-idrid",
+  "labels_csv": "labels.csv",
+  "id_column": "Image",
+  "label_column": "dr_grade",
+  "num_classes": 5,
+  "referable_threshold": 2,
+  "epsilon_per_release": "8",
+  "ledger": "../../demo-host/reference-ledger.db",
+  "group_factor": 2
+}

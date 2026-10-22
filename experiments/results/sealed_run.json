@@ -1,0 +1,317 @@
+{
+ "route_version": "0.2.1",
+ "epsilon_per_release": "8",
+ "cap": "32",
+ "memory_backed_output": true,
+ "weakened_controls": [],
+ "runs": [
+  {
+   "image": "toy-model",
+   "submissionId": "d3642002-6667-4c30-8592-33538be10515",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1307,
+    "predictions": "<30 predictions, host-internal>"
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1307,
+    "metrics": {
+     "qwk": -0.2764,
+     "accuracy": 0.2,
+     "referableSensitivity": 0.6667,
+     "referableSpecificity": 0.25,
+     "coverage": 1.0
+    }
+   },
+   "wall_seconds": 1.72,
+   "operator_stdout_excerpt": "toy-model wrote 30 predictions\n",
+   "spent_after": "8"
+  },
+  {
+   "image": "label-probe",
+   "submissionId": "0fdc58d2-2078-4707-a96a-4e0e119f5059",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1288,
+    "predictions": "<30 predictions, host-internal>"
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1288,
+    "metrics": {
+     "qwk": 0.0,
+     "accuracy": 0.2333,
+     "referableSensitivity": 0.0,
+     "referableSpecificity": 1.0,
+     "coverage": 1.0
+    }
+   },
+   "wall_seconds": 1.76,
+   "operator_stdout_excerpt": "LABEL-PROBE files: [] env: []\n",
+   "spent_after": "16"
+  },
+  {
+   "image": "input-echo",
+   "submissionId": "a73b55f7-3c7a-4156-b34e-06979f6cc47c",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1186,
+    "predictions": "<30 predictions, host-internal>"
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1186,
+    "metrics": {
+     "qwk": 0.0,
+     "accuracy": 0.2,
+     "referableSensitivity": 1.0,
+     "referableSpecificity": 0.0,
+     "coverage": 1.0
+    }
+   },
+   "wall_seconds": 1.61,
+   "operator_stdout_excerpt": "ECHO IDRiD_001 ffd8ffe000104a46494600010100012c012c0000ffe101f44578696600004d4d002a000000080006011200030000000100010000011a00050000000100000056\nECHO IDRiD_002 ffd8ffe000104a46494600010100012c012c0000ffe101f44578696600004d4d002a000000080006011200030000000100010000011a00050000000100000056\nECHO IDRiD_0",
+   "spent_after": "24"
+  },
+  {
+   "image": "egress",
+   "submissionId": "3b995f37-5195-486e-b329-c739013a5a3f",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "durationMs": 1182,
+    "failure": {
+     "code": "NETWORK_ATTEMPT_DETECTED",
+     "detail": "egress signature observed in captured output: 'network is unreachable'; exit status 0. Networking was disabled for this run, so the attempt failed."
+    }
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1182,
+    "failure": {
+     "code": "NETWORK_ATTEMPT_DETECTED",
+     "detail": "NETWORK_ATTEMPT_DETECTED reported by the host's sealed-execution worker"
+    }
+   },
+   "wall_seconds": 1.61,
+   "operator_stdout_excerpt": "egress attempt failed: OSError [Errno 101] Network is unreachable\negress attempt failed: gaierror [Errno -3] Temporary failure in name resolution\n",
+   "spent_after": "24"
+  },
+  {
+   "image": "malformed-output",
+   "submissionId": "e678aba5-f18e-4d3a-b8df-69dbe70541bf",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "durationMs": 1173,
+    "failure": {
+     "code": "MALFORMED_OUTPUT",
+     "detail": "predictions.json is not valid JSON"
+    }
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1173,
+    "failure": {
+     "code": "MALFORMED_OUTPUT",
+     "detail": "MALFORMED_OUTPUT reported by the host's sealed-execution worker"
+    }
+   },
+   "wall_seconds": 1.61,
+   "operator_stdout_excerpt": "",
+   "spent_after": "24"
+  },
+  {
+   "image": "crash",
+   "submissionId": "b289f129-2959-41de-ac00-daccf6d96817",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "durationMs": 1200,
+    "failure": {
+     "code": "NONZERO_EXIT",
+     "detail": "container exited with status 3"
+    }
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1200,
+    "failure": {
+     "code": "NONZERO_EXIT",
+     "detail": "NONZERO_EXIT reported by the host's sealed-execution worker"
+    }
+   },
+   "wall_seconds": 1.58,
+   "operator_stdout_excerpt": "",
+   "spent_after": "24"
+  },
+  {
+   "image": "sleeper",
+   "submissionId": "38cca66e-ca39-4b1c-8fbc-5a72b1d42b63",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "durationMs": 5265,
+    "failure": {
+     "code": "TIMEOUT",
+     "detail": "hard-killed after 5265 ms at the configured wall-clock cap"
+    }
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 5265,
+    "failure": {
+     "code": "TIMEOUT",
+     "detail": "TIMEOUT reported by the host's sealed-execution worker"
+    }
+   },
+   "wall_seconds": 5.64,
+   "operator_stdout_excerpt": "",
+   "spent_after": "24"
+  },
+  {
+   "image": "memory-hog",
+   "submissionId": "724e3513-df07-48a3-ad5f-bb33c0af5ab4",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "durationMs": 1179,
+    "failure": {
+     "code": "OOM_KILLED",
+     "detail": "container was OOM-killed by the sandbox memory limit"
+    }
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1179,
+    "failure": {
+     "code": "OOM_KILLED",
+     "detail": "OOM_KILLED reported by the host's sealed-execution worker"
+    }
+   },
+   "wall_seconds": 1.62,
+   "operator_stdout_excerpt": "",
+   "spent_after": "24"
+  },
+  {
+   "image": "output-flood",
+   "submissionId": "c5a010f7-75da-4464-98e2-ed21fa5b3ab5",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "durationMs": 1267,
+    "failure": {
+     "code": "OUTPUT_TOO_LARGE",
+     "detail": "/output reached 18874368 bytes, above the configured cap"
+    }
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1267,
+    "failure": {
+     "code": "OUTPUT_TOO_LARGE",
+     "detail": "OUTPUT_TOO_LARGE reported by the host's sealed-execution worker"
+    }
+   },
+   "wall_seconds": 1.66,
+   "operator_stdout_excerpt": "",
+   "spent_after": "24"
+  },
+  {
+   "image": "toy-model",
+   "submissionId": "d3642002-6667-4c30-8592-33538be10515",
+   "redelivery": true,
+   "preflight": "proceed",
+   "worker_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1209,
+    "predictions": "<30 predictions, host-internal>"
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1209,
+    "metrics": {
+     "qwk": -0.2764,
+     "accuracy": 0.2,
+     "referableSensitivity": 0.6667,
+     "referableSpecificity": 0.25,
+     "coverage": 1.0
+    }
+   },
+   "wall_seconds": 1.56,
+   "operator_stdout_excerpt": "toy-model wrote 30 predictions\n",
+   "spent_after": "24"
+  },
+  {
+   "image": "toy-model",
+   "submissionId": "1cc66779-4786-4695-87b2-817ef62f6062",
+   "redelivery": false,
+   "preflight": "proceed",
+   "worker_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1207,
+    "predictions": "<30 predictions, host-internal>"
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 1207,
+    "metrics": {
+     "qwk": -0.284,
+     "accuracy": 0.1733,
+     "referableSensitivity": 0.6591,
+     "referableSpecificity": 0.2419,
+     "coverage": 1.0
+    }
+   },
+   "wall_seconds": 1.58,
+   "operator_stdout_excerpt": "toy-model wrote 30 predictions\n",
+   "spent_after": "32"
+  },
+  {
+   "image": "toy-model",
+   "submissionId": "451d364d-81b1-44c3-a103-b96cdbc1aab7",
+   "redelivery": false,
+   "preflight": "INTERNAL_ERROR",
+   "worker_result": {
+    "not_run": "preflight refused"
+   },
+   "host_result": {
+    "routeVersion": "0.2.1",
+    "durationMs": 0,
+    "failure": {
+     "code": "INTERNAL_ERROR",
+     "detail": "privacy budget for this task is exhausted"
+    }
+   },
+   "wall_seconds": 0.0,
+   "operator_stdout_excerpt": "",
+   "spent_after": "32"
+  }
+ ],
+ "checks": {
+  "sandbox envelope not weakened": true,
+  "toy model: metrics returned, no predictions in host result": true,
+  "label probe: no labels file visible inside the container": true,
+  "input echo: container stdout absent from the host result": true,
+  "egress: blocked and classified, passed through without charge": true,
+  "malformed output: MALFORMED_OUTPUT, no charge": true,
+  "container exits non-zero: NONZERO_EXIT, no charge": true,
+  "wall-clock limit: TIMEOUT, no charge": true,
+  "memory limit: OOM_KILLED, no charge": true,
+  "output-size cap: OUTPUT_TOO_LARGE, no charge": true,
+  "every host result validates against the upstream SealedRunResult schema": true,
+  "worker failure details stay on the host (fixed detail text only)": true,
+  "redelivery of the first submission returns the stored release, free": true,
+  "fourth scored release fills the cap": true,
+  "budget exhausted: preflight refuses and the model is never run": true,
+  "no host result contains label rows or item ids": true,
+  "budget charged once per scored release (4 x \u03b5)": true
+ }
+}

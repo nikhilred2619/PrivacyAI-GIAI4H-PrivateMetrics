@@ -1,0 +1,14 @@
+{
+  "task_id": "example-host-dr-grading",
+  "dataset_id": "example-hospital-dr",
+  "version_id": "2026-10",
+  "scope_id": "example-hospital-dr-scope",
+  "labels_csv": "labels.csv",
+  "id_column": "Image",
+  "label_column": "dr_grade",
+  "num_classes": 5,
+  "referable_threshold": 2,
+  "epsilon_per_release": "1",
+  "ledger": "ledger.db",
+  "group_factor": 2
+}

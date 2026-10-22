@@ -1,0 +1,1247 @@
+{
+ "python": "3.13.16",
+ "platform": "Linux",
+ "counts": {
+  "PASS": 247,
+  "FAIL": 0,
+  "UNVERIFIED": 0
+ },
+ "total": 247,
+ "tests": [
+  {
+   "module": "test_adapter_cli",
+   "test": "test_metrics_body_matches_upstream_shape",
+   "result": "PASS"
+  },
+  {
+   "module": "test_adapter_cli",
+   "test": "test_budget_exhaustion_maps_to_closed_upstream_taxonomy",
+   "result": "PASS"
+  },
+  {
+   "module": "test_adapter_cli",
+   "test": "test_body_validates_against_upstream_pydantic_contract_if_available",
+   "result": "PASS"
+  },
+  {
+   "module": "test_adapter_cli",
+   "test": "test_cli_register_score_and_report",
+   "result": "PASS"
+  },
+  {
+   "module": "test_adapter_cli",
+   "test": "test_evaluation_scores_for_platform_side_scoring",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_original_bug_reproduced_by_old_rounding",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_values_off_the_accounting_grid_are_rejected[2.5e-6]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_values_off_the_accounting_grid_are_rejected[2.5e-06]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_values_off_the_accounting_grid_are_rejected[1e-7]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_values_off_the_accounting_grid_are_rejected[0.3333333333333333]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_values_off_the_accounting_grid_are_rejected[0.3333333]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_values_off_the_accounting_grid_are_rejected[bad5]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[0_0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[-1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[0_1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[-0.5]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[nan0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[inf]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[nan1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[Infinity]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[True]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[None]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[abc]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[bad11]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_invalid_values_rejected[1001]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_grid_values_are_exact[0.000001-1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_grid_values_are_exact[1e-06-1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_grid_values_are_exact[0.1-100000_0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_grid_values_are_exact[0.1-100000_1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_grid_values_are_exact[ok4-2500000]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_grid_values_are_exact[3-3000000]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_grid_values_are_exact[1000-1000000000]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_ceil_never_rounds_down",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[0.000001]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[0.000003]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[0.1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[0.3]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[0.7]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[1.1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[2.3]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[3.7]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[8]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_calibrated_scale_certified_cost_never_exceeds_declared[1000]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1b_naive_scale_exceeds_declared_for_small_epsilon",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_cumulative_fractional_releases_never_exceed_cap",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_boundary_exact_fill",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_smallest_quantum_release",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_ledger_refuses_to_charge_below_certified",
+   "result": "PASS"
+  },
+  {
+   "module": "test_budget",
+   "test": "test_D1_privacy_config_rejects_float_noise",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G1_exact_privacy_loss_on_small_instances_is_at_most_epsilon[case0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G1_exact_privacy_loss_on_small_instances_is_at_most_epsilon[case1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G1_exact_privacy_loss_on_small_instances_is_at_most_epsilon[case2]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G2_coverage_depends_on_predictions_only",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G3_post_processing_is_deterministic_given_the_noisy_table",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G4_certified_cost_matches_openDP_and_ledger_accounting_is_exact[0.000001]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G4_certified_cost_matches_openDP_and_ledger_accounting_is_exact[0.1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G4_certified_cost_matches_openDP_and_ledger_accounting_is_exact[0.25]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G4_certified_cost_matches_openDP_and_ledger_accounting_is_exact[1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G4_certified_cost_matches_openDP_and_ledger_accounting_is_exact[3.7]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G4_certified_cost_matches_openDP_and_ledger_accounting_is_exact[4]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G4_certified_cost_matches_openDP_and_ledger_accounting_is_exact[8]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_guarantees",
+   "test": "test_G5_every_single_label_change_moves_the_table_by_at_most_two",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H1_labels_are_read_only_from_the_host_config",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H1b_scorer_refuses_labels_that_differ_from_the_registered_version",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H1c_host_config_rejects_unknown_and_missing_keys",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H2_H3_metrics_body_carries_no_labels_ids_or_predictions",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4_exact_result_schema_and_upstream_pydantic",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad2]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad3]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad4]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad5]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad6]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad7]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad8]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4b_result_schema_check_rejects_everything_else[bad9]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4c_worker_metrics_are_never_forwarded",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4d_malformed_worker_bodies_fail_closed_without_charge[None]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4d_malformed_worker_bodies_fail_closed_without_charge[wb1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4d_malformed_worker_bodies_fail_closed_without_charge[x]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4d_malformed_worker_bodies_fail_closed_without_charge[wb3]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4d_malformed_worker_bodies_fail_closed_without_charge[wb4]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[DIGEST_MISMATCH]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[IMAGE_PULL_FAILED]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[INTERNAL_ERROR]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[NETWORK_ATTEMPT_DETECTED]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[NONZERO_EXIT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[NO_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[OOM_KILLED]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[OUTPUT_TOO_LARGE]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[STARTUP_FAILED]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[TIMEOUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4e_worker_failures_pass_through_without_charge[UNKNOWN_ITEM_IDS]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4h_worker_failure_detail_never_leaves_the_host[container exited with status 173]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4h_worker_failure_detail_never_leaves_the_host[/output reached 18874371 bytes, above the configured cap]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4h_worker_failure_detail_never_leaves_the_host[hard-killed after 5321 ms at the configured wall-clock cap]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4h_worker_failure_detail_never_leaves_the_host[LABEL IDRiD_001=4 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H8g_concurrent_redelivery_of_one_submission_charges_once",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5d_route_version_is_registrable_by_the_upstream_route_registry",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5e_current_upstream_dispatch_shape_is_refused_proposed_shape_is_accepted",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4f_worker_failure_with_unknown_code_is_not_forwarded",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5_dispatch_for_another_task_route_or_bad_id_is_refused[d0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5_dispatch_for_another_task_route_or_bad_id_is_refused[d1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5_dispatch_for_another_task_route_or_bad_id_is_refused[d2]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5_dispatch_for_another_task_route_or_bad_id_is_refused[d3]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5_dispatch_for_another_task_route_or_bad_id_is_refused[d4]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5_dispatch_for_another_task_route_or_bad_id_is_refused[None]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[<absent>]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[None]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[1.0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[True]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[rv6]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[rv7]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[0.2.1 ]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[ 0.2.1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[0.2.1-draft]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[v0.2.1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[0.2.0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[0.1.2-draft]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5b_route_version_is_required_and_exact[xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H5c_exact_route_version_is_accepted",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H6d_preflight_refuses_submissions_that_can_never_be_released",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H7d_patient_map_with_duplicate_items_is_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H8f_new_ledger_files_are_owner_only",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H6_global_budget_shared_by_all_dispatches",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H6b_preflight_refuses_to_run_a_model_when_budget_is_exhausted",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H6c_dataset_revision_charges_the_same_scope",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H7_group_factor_validated_against_patient_map",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H7b_group_factor_is_immutable_and_reported_at_patient_level",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H7c_v3_ledger_without_group_factor_is_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H8_replay_across_restarts_is_identical_and_free",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H8b_redelivery_with_different_predictions_is_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H8c_crash_after_reservation_stays_charged_and_never_releases",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H8d_concurrent_host_processes_never_overspend",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H8e_ledger_failure_fails_closed",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H9_host_scorer_refuses_a_simulation_ledger",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H10_cli_host_flow",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H4g_schema_check_is_the_last_gate",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host",
+   "test": "test_H10b_example_host_config_registers_and_scores",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host_demo_and_fidelity",
+   "test": "test_host_demo_runs_from_the_documented_command",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host_demo_and_fidelity",
+   "test": "test_reference_fixture_is_the_upstream_file_and_predictions_regenerate",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host_demo_and_fidelity",
+   "test": "test_fidelity_simulation_mode_is_bit_reproducible",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host_demo_and_fidelity",
+   "test": "test_committed_fidelity_numbers_are_reproduced_by_fresh_production_noise",
+   "result": "PASS"
+  },
+  {
+   "module": "test_host_demo_and_fidelity",
+   "test": "test_simulation_sampler_matches_production_distribution_on_reference_task",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_same_dataset_identical_labels_reregistered",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_D2_one_label_changed_new_version_shares_budget",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_version_ids_are_immutable",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_changed_version_identifier_same_labels_shares_budget",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_D2b_same_dataset_under_another_task_name_shares_budget",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_task_cannot_be_rebound_to_another_dataset",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_duplicate_dataset_registration_under_another_scope_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_copy_under_new_dataset_and_scope_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_minimally_modified_copy_in_new_scope_refused_by_item_overlap",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_partial_overlap_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_overlapping_datasets_may_share_a_scope",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_genuinely_disjoint_datasets_have_independent_scopes",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_multiple_participants_share_scope",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_concurrent_queries_across_two_tasks_on_one_scope",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_budget_reset_attempts_all_fail",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_cap_changes_are_audited_and_lowering_is_free",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_scoring_unregistered_or_mismatched_labels_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_identity",
+   "test": "test_old_schema_file_is_not_silently_reused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_opendp_privacy_map_equals_declared_epsilon[0.25]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_opendp_privacy_map_equals_declared_epsilon[0.5]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_opendp_privacy_map_equals_declared_epsilon[1.0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_opendp_privacy_map_equals_declared_epsilon[2.0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_opendp_privacy_map_equals_declared_epsilon[4.0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_opendp_privacy_map_equals_declared_epsilon[8.0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_sensitivity_of_table_is_two_for_every_single_label_change",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_projection_is_onto_simplex_and_idempotent",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_released_metrics_always_in_valid_range",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_simulation_sampler_matches_opendp_distribution",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_empirical_privacy_ratio_on_neighbouring_label_sets",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_empty_matched_set_draws_no_noise_and_reveals_no_label_information",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_single_predicted_class_makes_qwk_and_sensitivity_label_independent",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_undefined_denominator_follows_upstream_convention",
+   "result": "PASS"
+  },
+  {
+   "module": "test_mechanism",
+   "test": "test_opendp_domain_is_i32_and_counts_fit",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_new_ledger_defaults_to_production_and_records_mode",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_invalid_ledger_mode_rejected",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_simulation_file_cannot_be_reopened_as_production_after_restart",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_production_file_cannot_be_reopened_as_simulation_after_restart",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_file_without_stored_mode_is_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_v2_schema_file_is_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_simulation_scorer_refused_on_production_ledger",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_production_scorer_refused_on_simulation_ledger",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_ledger_reserve_refuses_other_mode_directly",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_cross_mode_replay_after_restart_releases_nothing",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_cross_mode_row_is_a_conflict_at_the_ledger",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_production_row_never_replayed_in_simulation",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_same_submission_id_in_both_modes_is_independent",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_simulation_spend_never_touches_production_scope",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_simulation_replay_stays_simulation_after_restart",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_outcome_mode_derived_from_flag",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_outcome_rejects_inconsistent_provenance[kw0]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_outcome_rejects_inconsistent_provenance[kw1]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_outcome_rejects_inconsistent_provenance[kw2]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_adapter_refuses_simulation_outcomes_however_built",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_adapter_refuses_outcome_whose_mode_was_tampered",
+   "result": "PASS"
+  },
+  {
+   "module": "test_modes",
+   "test": "test_production_outcomes_still_publish",
+   "result": "PASS"
+  },
+  {
+   "module": "test_parity",
+   "test": "test_hand_computed_upstream_cases",
+   "result": "PASS"
+  },
+  {
+   "module": "test_parity",
+   "test": "test_matches_upstream_typescript_on_205_cases",
+   "result": "PASS"
+  },
+  {
+   "module": "test_registry_declarations",
+   "test": "test_R1_declarations_parse_with_upstream_route_registry_schemas",
+   "result": "PASS"
+  },
+  {
+   "module": "test_registry_declarations",
+   "test": "test_R2_validator_rejects_an_unregistrable_version",
+   "result": "PASS"
+  },
+  {
+   "module": "test_registry_declarations",
+   "test": "test_R3_declarations_agree_with_code_and_committed_measurements",
+   "result": "PASS"
+  },
+  {
+   "module": "test_replay",
+   "test": "test_D3_other_participant_cannot_fetch_stored_release",
+   "result": "PASS"
+  },
+  {
+   "module": "test_replay",
+   "test": "test_D4_replay_under_changed_epsilon_is_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_replay",
+   "test": "test_replay_survives_restart",
+   "result": "PASS"
+  },
+  {
+   "module": "test_replay",
+   "test": "test_crashed_reservation_stays_charged_and_is_recoverable",
+   "result": "PASS"
+  },
+  {
+   "module": "test_replay",
+   "test": "test_release_persist_failure_returns_nothing",
+   "result": "PASS"
+  },
+  {
+   "module": "test_replay",
+   "test": "test_ledger_rows_record_certified_cost_not_above_charge",
+   "result": "PASS"
+  },
+  {
+   "module": "test_replay",
+   "test": "test_registration_requires_existing_scope",
+   "result": "PASS"
+  },
+  {
+   "module": "test_sealed_integration",
+   "test": "test_S16_real_sealed_run_through_upstream_worker_and_host_scorer",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S1_repeated_requests_spend_budget_until_blocked",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S2_replay_returns_identical_release_without_spending",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S2b_replay_with_different_predictions_is_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S3_budget_is_shared_across_participants",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S3b_new_scorer_instance_shares_the_persistent_ledger",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S3c_cap_cannot_be_raised_by_reregistering",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S4_differencing_queries_each_cost_budget",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S5_single_item_subgroup_is_noised",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[None-MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[payload1-MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[payload2-MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[payload3-MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[payload4-MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[payload5-MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[payload6-MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[payload7-UNKNOWN_ITEM_IDS]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[payload8-MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S6_S9_malformed_inputs_refused_without_cost[payload9-MALFORMED_OUTPUT]",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S9b_oversize_payload_refused",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S8b_missing_items_allowed_and_reported_as_coverage",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S10_concurrent_threads_never_overspend",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S10b_concurrent_processes_never_overspend",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S11_crash_after_reserve_keeps_budget_spent",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S12_logs_and_ledger_hold_no_sensitive_values",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S13_refusals_identical_for_different_label_sets",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S13b_label_validation_happens_at_registration",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S14_seeded_sampler_refused_in_production",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S14b_simulation_outcomes_cannot_be_sent_to_platform",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_production_releases_are_not_reproducible",
+   "result": "PASS"
+  },
+  {
+   "module": "test_security",
+   "test": "test_S15_ledger_failure_fails_closed",
+   "result": "PASS"
+  }
+ ]
+}

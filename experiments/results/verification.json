@@ -1,0 +1,131 @@
+{
+ "route_version": "0.2.1",
+ "commit": "e12a536de2d0d0208d02996399b8c1a5dd2620f7",
+ "uncommitted_changes": false,
+ "when_utc": "2026-10-22T20:45:38+00:00",
+ "python": "3.13.16",
+ "platform": "Linux-6.18.44-fc-v140-x86_64-with-glibc2.39",
+ "steps": [
+  {
+   "step": "ruff",
+   "status": "PASS",
+   "exit": 0,
+   "seconds": 0.0,
+   "tail": [
+    "All checks passed!"
+   ]
+  },
+  {
+   "step": "mypy",
+   "status": "PASS",
+   "exit": 0,
+   "seconds": 0.3,
+   "tail": [
+    "Success: no issues found in 15 source files"
+   ]
+  },
+  {
+   "step": "pytest + security report (JUnit)",
+   "status": "PASS",
+   "exit": 0,
+   "seconds": 69.2,
+   "tail": [
+    "........................................................................ [ 29%]",
+    "........................................................................ [ 58%]",
+    "........................................................................ [ 87%]",
+    "...............................                                          [100%]",
+    "247 passed in 68.63s (0:01:08)",
+    "{'PASS': 247, 'FAIL': 0, 'UNVERIFIED': 0} -> docs/SECURITY_TEST_REPORT.md"
+   ]
+  },
+  {
+   "step": "mutation check",
+   "status": "PASS",
+   "exit": 0,
+   "seconds": 18.8,
+   "tail": [
+    "CAUGHT H5 understated group factor accepted",
+    "CAUGHT D10 absent route version accepted",
+    "CAUGHT D11 duplicate patient-map rows accepted",
+    "CAUGHT D12 preflight runs models for unreleasable submissions",
+    "CAUGHT D13 world-readable ledger file",
+    "CAUGHT D14 worker failure detail forwarded"
+   ]
+  },
+  {
+   "step": "prediction fixtures regenerate exactly",
+   "status": "PASS",
+   "exit": 0,
+   "seconds": 0.1,
+   "tail": []
+  },
+  {
+   "step": "host demonstration (CLI)",
+   "status": "PASS",
+   "exit": 0,
+   "seconds": 4.6,
+   "tail": [
+    "ALL CHECKS PASSED"
+   ]
+  },
+  {
+   "step": "real sealed run (upstream worker + Docker)",
+   "status": "PASS",
+   "exit": 0,
+   "seconds": 33.4,
+   "tail": [
+    "PASS worker failure details stay on the host (fixed detail text only)",
+    "PASS redelivery of the first submission returns the stored release, free",
+    "PASS fourth scored release fills the cap",
+    "PASS budget exhausted: preflight refuses and the model is never run",
+    "PASS no host result contains label rows or item ids",
+    "PASS budget charged once per scored release (4 x \u03b5)"
+   ]
+  },
+  {
+   "step": "route-registry declarations vs upstream Zod schemas",
+   "status": "PASS",
+   "exit": 0,
+   "seconds": 1.4,
+   "tail": [
+    "{",
+    " \"zod\": \"4.4.2\",",
+    " \"evaluation-route\": \"valid\",",
+    " \"route-version\": \"valid\"",
+    "}"
+   ]
+  },
+  {
+   "step": "reference fidelity (reduced, 300 trials, not committed)",
+   "status": "PASS",
+   "exit": 0,
+   "seconds": 6.1,
+   "tail": [
+    "{\"parity\": true, \"smallest_epsilon_meeting_rule\": \"8\", \"seconds\": 5.4}"
+   ]
+  }
+ ],
+ "tests": {
+  "PASS": 247,
+  "FAIL": 0,
+  "UNVERIFIED": 0,
+  "total": 247
+ },
+ "mutants": {
+  "caught": 27,
+  "total": 27
+ },
+ "sealed_run_checks": {
+  "passed": 17,
+  "total": 17
+ },
+ "fidelity_reproduction": {
+  "previous_route_version": "0.2.1-draft",
+  "previous_trials": 5000,
+  "cells_compared": 150,
+  "cells_within_4se": 150,
+  "max_abs_z": 2.5353335090229105,
+  "max_abs_diff": 0.010466799999999943,
+  "previous_file": "reference_fidelity_previous_v0.2.1-draft.json"
+ }
+}

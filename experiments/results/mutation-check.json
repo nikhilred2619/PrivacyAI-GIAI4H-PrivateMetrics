@@ -1,0 +1,164 @@
+[
+  {
+    "mutation": "no noise",
+    "test": "tests/test_security.py::test_S5_single_item_subgroup_is_noised",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "ledger ignores cap",
+    "test": "tests/test_security.py::test_S1_repeated_requests_spend_budget_until_blocked",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "replay re-samples",
+    "test": "tests/test_security.py::test_S2_replay_returns_identical_release_without_spending",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "per-participant budget",
+    "test": "tests/test_security.py::test_S3_budget_is_shared_across_participants",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "check-then-act race (no transaction)",
+    "test": "tests/test_security.py::test_S10_concurrent_threads_never_overspend",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "uncalibrated scale (textbook 2/eps)",
+    "test": "tests/test_budget.py::test_D1b_calibrated_scale_certified_cost_never_exceeds_declared",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "crash refunds budget",
+    "test": "tests/test_security.py::test_S11_crash_after_reserve_keeps_budget_spent",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D1 round-to-nearest grid",
+    "test": "tests/test_budget.py::test_D1_values_off_the_accounting_grid_are_rejected",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D2 scope from label content",
+    "test": "tests/test_identity.py::test_D2_one_label_changed_new_version_shares_budget",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D2 no item-overlap check",
+    "test": "tests/test_identity.py::test_minimally_modified_copy_in_new_scope_refused_by_item_overlap",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D3 replay ignores owner",
+    "test": "tests/test_replay.py::test_D3_other_participant_cannot_fetch_stored_release",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D8 ledger serves rows across modes",
+    "test": "tests/test_modes.py::test_cross_mode_row_is_a_conflict_at_the_ledger",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D8 cross-mode replay (ledger and scorer checks removed)",
+    "test": "tests/test_modes.py::test_cross_mode_replay_after_restart_releases_nothing",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D8 ledger file mode not enforced",
+    "test": "tests/test_modes.py::test_simulation_file_cannot_be_reopened_as_production_after_restart",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D8 scorer accepts other-mode ledger",
+    "test": "tests/test_modes.py::test_simulation_scorer_refused_on_production_ledger",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D8 adapter trusts the simulation flag only",
+    "test": "tests/test_modes.py::test_adapter_refuses_outcome_whose_mode_was_tampered",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "H1 worker metrics forwarded",
+    "test": "tests/test_host.py::test_H4c_worker_metrics_are_never_forwarded",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "H2 result schema gate removed",
+    "test": "tests/test_host.py::test_H4g_schema_check_is_the_last_gate",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "H3 route version not checked",
+    "test": "tests/test_host.py::test_H5b_route_version_is_required_and_exact",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D9 non-canonical submission UUID accepted",
+    "test": "tests/test_host.py::test_H5_dispatch_for_another_task_route_or_bad_id_is_refused",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "H4 preflight ignores the budget",
+    "test": "tests/test_host.py::test_H6b_preflight_refuses_to_run_a_model_when_budget_is_exhausted",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "H5 understated group factor accepted",
+    "test": "tests/test_host.py::test_H7_group_factor_validated_against_patient_map",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D10 absent route version accepted",
+    "test": "tests/test_host.py::test_H5b_route_version_is_required_and_exact",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D11 duplicate patient-map rows accepted",
+    "test": "tests/test_host.py::test_H7d_patient_map_with_duplicate_items_is_refused",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D12 preflight runs models for unreleasable submissions",
+    "test": "tests/test_host.py::test_H6d_preflight_refuses_submissions_that_can_never_be_released",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D13 world-readable ledger file",
+    "test": "tests/test_host.py::test_H8f_new_ledger_files_are_owner_only",
+    "test_passed_under_mutation": false,
+    "caught": true
+  },
+  {
+    "mutation": "D14 worker failure detail forwarded",
+    "test": "tests/test_host.py::test_H4h_worker_failure_detail_never_leaves_the_host",
+    "test_passed_under_mutation": false,
+    "caught": true
+  }
+]

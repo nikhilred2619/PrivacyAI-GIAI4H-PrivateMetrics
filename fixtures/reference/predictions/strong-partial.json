@@ -1,0 +1,28 @@
+{
+ "predictions": {
+  "IDRiD_001": 4,
+  "IDRiD_002": 3,
+  "IDRiD_003": 3,
+  "IDRiD_004": 4,
+  "IDRiD_005": 4,
+  "IDRiD_006": 3,
+  "IDRiD_009": 2,
+  "IDRiD_010": 2,
+  "IDRiD_011": 2,
+  "IDRiD_012": 2,
+  "IDRiD_015": 1,
+  "IDRiD_016": 3,
+  "IDRiD_018": 3,
+  "IDRiD_029": 0,
+  "IDRiD_030": 1,
+  "IDRiD_032": 4,
+  "IDRiD_037": 0,
+  "IDRiD_039": 0,
+  "IDRiD_041": 0,
+  "IDRiD_063": 1,
+  "IDRiD_073": 1,
+  "IDRiD_074": 1,
+  "IDRiD_085": 1,
+  "IDRiD_101": 1
+ }
+}

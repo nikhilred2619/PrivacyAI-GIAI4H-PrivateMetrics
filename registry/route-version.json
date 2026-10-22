@@ -1,0 +1,88 @@
+{
+  "version": "0.2.1",
+  "threatModel": {
+    "adversaries": [
+      {
+        "party": "MODEL_DEVELOPER",
+        "defended": true,
+        "capability": "Controls model code; the model sees all evaluation images jointly inside the inherited sealed container; submits adaptively; may collude across identities. Defended for reference labels: every release is epsilon-label-DP and all releases on a privacy scope share one exact budget. Not defended for images (no image-level guarantee)."
+      },
+      {
+        "party": "PLATFORM_OPERATOR",
+        "defended": true,
+        "capability": "Dispatches runs and receives every released result for a host task. Sees only noisy GRADING metrics, a closed-taxonomy failure code with fixed detail text, routeVersion and the worker's durationMs; never host labels, predictions or ledger contents. Covered by the same label-DP guarantee as released results."
+      },
+      {
+        "party": "ROUTE_PROVIDER",
+        "defended": true,
+        "capability": "Writes open code and does not operate it. Receives no data, keys, seeds, telemetry or results."
+      },
+      {
+        "party": "DATA_HOST",
+        "defended": false,
+        "capability": "Holds the labels, images, sealed-execution worker, this scorer and its privacy ledger; trusted operator. Differential privacy cannot protect data from the party that holds it, and a host can bypass or roll back the ledger."
+      }
+    ],
+    "assumptions": [
+      "A1: Labels never enter the model sandbox; predictions do not depend on labels (inherited containment run by the host).",
+      "A2: Production noise is fresh (OpenDP CSPRNG) and never re-drawn for the same submission; simulation results never become production results.",
+      "A3: Every scored release on a protected host label set passes through the host's ledger; the host runs only this scorer for the task.",
+      "A4: The item set, item identifiers and item count are non-sensitive.",
+      "A5: The declared group factor g is at least the true maximum number of evaluation items per patient; patient-level protection is g times epsilon per release.",
+      "A6: No other participant-visible output depends on labels.",
+      "A7: The ledger file is not modified, replaced or rolled back outside this component."
+    ],
+    "outOfScope": [
+      "A compromised or dishonest data host, scorer host or ledger file, including ledger rollback from backups.",
+      "A host deployment that bypasses this scorer or returns predictions or plaintext metrics.",
+      "Image-level, membership-level and cross-host or cross-dataset patient-level privacy.",
+      "Side channels beyond the inherited container controls, including failure codes chosen by the model and run duration.",
+      "Plaintext scoring of the public reference task on the platform, including Mode 1 uploads.",
+      "Attacks on OpenDP or the operating system's random number generator."
+    ]
+  },
+  "disclosureProfile": {
+    "observations": [
+      {
+        "party": "MODEL_DEVELOPER",
+        "observes": "The five GRADING metrics computed from a noisy confusion table (coverage exact), or a failure code. Never labels, predictions, exact counts, noise or other participants' results."
+      },
+      {
+        "party": "PLATFORM_OPERATOR",
+        "observes": "Per run: noisy metrics or a closed-taxonomy failure code with fixed detail text, routeVersion and the worker's durationMs. No labels, predictions, item identifiers, exact counts or ledger contents."
+      },
+      {
+        "party": "DATA_HOST",
+        "observes": "Its own labels and images; container stdout/stderr in operator logs (inherited); a privacy ledger with released noisy metrics, predictions hashes, charged and certified epsilon. Not exact counts, plaintext metrics or noise."
+      },
+      {
+        "party": "ROUTE_PROVIDER",
+        "observes": "Nothing: no telemetry, data, keys, seeds or results."
+      }
+    ],
+    "trustAnchor": "CONTRACTUAL",
+    "keyGovernance": "No decryption keys or attestation roots are introduced. Production randomness comes from OpenDP's CSPRNG-backed sampler and is not stored. The guarantee rests on the data host operating the scorer and ledger as declared.",
+    "reproducible": {
+      "value": false,
+      "method": "A production release is not reproducible by design (fresh noise). Verifiable instead: open code and pinned dependencies, per-release OpenDP-certified epsilon in the ledger, exact ledger sums, and the reference-task fidelity experiment (statistically reproducible; bit-for-bit with the seeded simulation sampler)."
+    }
+  },
+  "operationalEnvelope": {
+    "permittedOperations": [
+      "host-register: register privacy scope, dataset, version (labels and group factor) and task in the host ledger",
+      "host-preflight: refuse a dispatch before the model runs (task, exact routeVersion, canonical submission UUID, budget, releasability)",
+      "host-score: score the worker's predictions into noisy GRADING metrics or pass a failure code through",
+      "ledger: report label-level and patient-level epsilon spent per scope",
+      "recover: mark stale reservations FAILED_SPENT (still charged, never released)"
+    ],
+    "arithmeticPrecision": "Exact integer confusion counts; exact discrete Laplace over i32 (OpenDP 0.16.0); IEEE-754 double post-processing; outputs rounded to 4 decimals; epsilon as exact rationals on a 1e-6 grid",
+    "maxRuntimeSec": 1800,
+    "maxMemoryMb": 1024,
+    "modelConstraints": "None beyond the reference contract: read /input/index.json, write predictions.json (integer labels in [0, K-1], at most 100,000 items) to /output. GRADING tasks only. maxRuntimeSec and maxMemoryMb are the reference worker's dev-environment limits (infra/cdk environments.ts) and are enforced by the host's sealed-execution worker, not by this scorer; each host sets its own values [DECISION].",
+    "fidelityGap": {
+      "metric": "accuracy",
+      "delta": -0.005,
+      "measuredOn": "idrid-dr-grading public labels, synthetic 'strong' prediction fixture, eps=8, mean of 5,000 releases (contributor-measured, local)"
+    }
+  }
+}
